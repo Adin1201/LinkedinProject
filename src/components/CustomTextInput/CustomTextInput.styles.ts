@@ -1,0 +1,16 @@
+import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+
+interface Style {
+    placeholder: TextStyle,
+    inputWrapper:ViewStyle
+}
+
+export default StyleSheet.create<Style>({
+    placeholder: {
+
+    },
+    inputWrapper: {
+        borderWidth: 1,
+        borderRadius: 4,
+    }
+})
