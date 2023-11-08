@@ -38,7 +38,7 @@ function LoginScreen() {
     Alert.alert('Close clicked');
   }
 
-  function openSignInPage() {
+  function openSignUpPage() {
     return navigation.navigate('SignUp');
   }
 
@@ -81,7 +81,7 @@ function LoginScreen() {
               <Text style={styles.singInText}>Sign in</Text>
               <Text>
                 or{' '}
-                <Text style={styles.joinLnText} onPress={openSignInPage}>
+                <Text style={styles.joinLnText} onPress={openSignUpPage}>
                   Join Linkedin
                 </Text>
               </Text>
