@@ -47,7 +47,7 @@ export default StyleSheet.create<Style>({
   },
   boldBlueText: {
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#0A66C2',
   },
   separatorContainer: {
     marginVertical: 10,

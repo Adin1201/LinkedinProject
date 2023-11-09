@@ -7,12 +7,12 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import LoginStack from './navigation/LoginStack';
+import AuthStack from './navigation/AuthStack';
 
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      <LoginStack />
+      <AuthStack />
     </NavigationContainer>
   );
 }
