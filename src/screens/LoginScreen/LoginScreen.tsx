@@ -54,6 +54,10 @@ function LoginScreen() {
     Alert.alert('Sign in with Apple');
   }
 
+  function openWelcomeScreen() {
+    return navigation.navigate('WelcomeScreen');
+  }
+
   return (
     <SafeAreaView style={[backgroundStyle, styles.safeAreaView]}>
       <StatusBar
@@ -71,7 +75,7 @@ function LoginScreen() {
               resizeMode="contain"
               style={styles.logoImg}
             />
-            <TouchableOpacity onPress={onCloseClicked}>
+            <TouchableOpacity onPress={openWelcomeScreen}>
               <Image source={CloseButton} style={styles.closeBtn} />
             </TouchableOpacity>
           </View>
