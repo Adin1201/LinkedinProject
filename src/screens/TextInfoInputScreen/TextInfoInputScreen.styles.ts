@@ -11,6 +11,8 @@ interface Style {
   inputInfoWrapper: ViewStyle;
   contentContainer: ViewStyle;
   inputInfoContainer: ViewStyle;
+  buttonContainer: ViewStyle;
+  inputHeightSize: TextStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -54,5 +56,11 @@ export default StyleSheet.create<Style>({
   inputInfoContainer: {
     flex: 0.55,
     justifyContent: 'center',
+  },
+  buttonContainer: {
+    marginTop: 20,
+  },
+  inputHeightSize: {
+    height: 30,
   },
 });

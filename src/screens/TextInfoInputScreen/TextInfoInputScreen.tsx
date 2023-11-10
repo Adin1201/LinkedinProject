@@ -75,7 +75,7 @@ function LoginScreen() {
                 onChangeText={slovoSTastature =>
                   setState({...state, firstName: slovoSTastature})
                 }
-                style={{height: 30}}
+                style={styles.inputHeightSize}
               />
             </View>
             <Text>Last Name</Text>
@@ -84,9 +84,9 @@ function LoginScreen() {
               onChangeText={slovoSTastature =>
                 setState({...state, lastName: slovoSTastature})
               }
-              style={{height: 30}}
+              style={styles.inputHeightSize}
             />
-            <View style={{marginTop: 20}}>
+            <View style={styles.buttonContainer}>
               <Button onPress={continueButton} title="Continue" />
             </View>
           </View>
