@@ -16,6 +16,9 @@ interface Style {
   imageText: TextStyle;
   boldText: TextStyle;
   signInWrapper: ViewStyle;
+  agreeAndJoinWrapper: ViewStyle;
+  signInWithAppleWrapper: ViewStyle;
+  contentContainer: ViewStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -83,5 +86,17 @@ export default StyleSheet.create<Style>({
   signInWrapper: {
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  agreeAndJoinWrapper: {
+    marginTop: 15,
+    marginBottom: 10,
+  },
+  signInWithAppleWrapper: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });

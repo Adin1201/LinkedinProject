@@ -94,7 +94,7 @@ function RegisterScreen() {
     Alert.alert('Sign in with Apple');
   }
 
-  function openSignUpPage() {
+  function openSignInPage() {
     return navigation.navigate('SignIn');
   }
 
@@ -107,7 +107,7 @@ function RegisterScreen() {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}
-        contentContainerStyle={{flex: 1, justifyContent: 'center'}}>
+        contentContainerStyle={styles.contentContainer}>
         <View style={styles.root}>
           <View style={styles.linkedWrapper}>
             <Image
@@ -155,7 +155,7 @@ function RegisterScreen() {
             </Text>
             .
           </Text>
-          <View style={{marginTop: 15, marginBottom: 10}}>
+          <View style={styles.agreeAndJoinWrapper}>
             <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
           </View>
           <View>
@@ -166,7 +166,7 @@ function RegisterScreen() {
               transparent={true}
             />
           </View>
-          <View style={{marginTop: 10, marginBottom: 10}}>
+          <View style={styles.signInWithAppleWrapper}>
             <Button
               icon={AppleLogo}
               onPress={signInWithApple}
@@ -175,7 +175,7 @@ function RegisterScreen() {
             />
           </View>
           <View style={styles.signInWrapper}>
-            <Text style={styles.singInText} onPress={openSignUpPage}>
+            <Text style={styles.singInText} onPress={openSignInPage}>
               {' '}
               Sign in
             </Text>
