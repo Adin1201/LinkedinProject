@@ -3,7 +3,7 @@ import SingInScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import TextInfoInputScreen from '../screens/TextInfoInputScreen';
-
+import AddEmailScreen from '../screens/AddEmailScreen';
 const Stack = createNativeStackNavigator<any>();
 
 const AuthStack = () => {
@@ -27,6 +27,11 @@ const AuthStack = () => {
       <Stack.Screen
         name="TextInfoInputScreen"
         component={TextInfoInputScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="AddEmailScreen"
+        component={AddEmailScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
