@@ -14,7 +14,6 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
 import LinkedInLogo from '../../assets/images/linkedIn_logo.png';
-import CustomTextInput from '../../components/CustomTextInput';
 import Button from '../../components/Button';
 import GoogleLogo from '../../assets/images/google_logo.png';
 import styles from './WelcomeScreen.styles';
@@ -98,6 +97,10 @@ function RegisterScreen() {
     return navigation.navigate('SignIn');
   }
 
+  function TextInfoInputScreen() {
+    return navigation.navigate('TextInfoInputScreen');
+  }
+
   return (
     <SafeAreaView style={[backgroundStyle, styles.safeAreaView]}>
       <StatusBar
@@ -156,7 +159,7 @@ function RegisterScreen() {
             .
           </Text>
           <View style={styles.agreeAndJoinWrapper}>
-            <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
+            <Button onPress={TextInfoInputScreen} title="Agree & Join" />
           </View>
           <View>
             <Button
