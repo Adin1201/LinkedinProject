@@ -16,7 +16,7 @@ import LinkedInLogo from '../../assets/images/linkedIn_logo.png';
 import CloseButton from '../../assets/images/close_btn.png';
 import CustomTextInput from '../../components/CustomTextInput';
 import Button from '../../components/Button';
-import styles from './TextInfoInputScreen.styles';
+import styles from './AddNameScreen.styles';
 
 function LoginScreen() {
   const [state, setState] = useState({
@@ -31,10 +31,6 @@ function LoginScreen() {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
-  function onCloseClicked() {
-    Alert.alert('Close clicked');
-  }
 
   function continueButton() {
     Alert.alert('continueButton');
