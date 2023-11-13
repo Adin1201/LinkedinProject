@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SingInScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
-import TextInfoInputScreen from '../screens/TextInfoInputScreen';
+import AddNameScreen from '../screens/AddNameScreen';
 import AddEmailScreen from '../screens/AddEmailScreen';
 const Stack = createNativeStackNavigator<any>();
 
@@ -25,8 +25,8 @@ const AuthStack = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="TextInfoInputScreen"
-        component={TextInfoInputScreen}
+        name="AddNameScreen"
+        component={AddNameScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen

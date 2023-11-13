@@ -97,8 +97,8 @@ function RegisterScreen() {
     return navigation.navigate('SignIn');
   }
 
-  function TextInfoInputScreen() {
-    return navigation.navigate('TextInfoInputScreen');
+  function AddNameScreen() {
+    return navigation.navigate('AddNameScreen');
   }
 
   return (
@@ -159,7 +159,7 @@ function RegisterScreen() {
             .
           </Text>
           <View style={styles.agreeAndJoinWrapper}>
-            <Button onPress={TextInfoInputScreen} title="Agree & Join" />
+            <Button onPress={AddNameScreen} title="Agree & Join" />
           </View>
           <View>
             <Button
