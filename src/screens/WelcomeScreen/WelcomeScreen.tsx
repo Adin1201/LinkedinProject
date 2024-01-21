@@ -99,90 +99,92 @@ function RegisterScreen() {
   }
 
   return (
-    <SafeAreaView style={[backgroundStyle, styles.safeAreaView]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.root}>
-          <View style={styles.linkedWrapper}>
-            <Image
-              source={LinkedInLogo}
-              resizeMode="contain"
-              style={styles.logoImg}
-            />
-          </View>
-          <View style={{marginBottom: 30}}></View>
-          <View style={styles.carouselContainer}>
-            <FlatList
-              data={carouselData}
-              renderItem={renderItems}
-              keyExtractor={(item, index) => index.toString()}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              pagingEnabled
-              ref={flatListRef}
-              style={styles.carousel}
-              viewabilityConfig={viewConfigRef}
-              onViewableItemsChanged={onViewRef.current}
-            />
-            <Pagination
-              dotsLength={carouselData.length}
-              activeDotIndex={currentIndex}
-              containerStyle={styles.dotView}
-              dotStyle={styles.circle}
-            />
-          </View>
-          <View style={{marginBottom: 5}}></View>
-          <Text>
-            By clicking Agree & Join or Continue, you agree to LinkedIn's{' '}
-            <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
-              User Agreement
+    <ScrollView>
+      <SafeAreaView style={[backgroundStyle, styles.safeAreaView]}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={backgroundStyle}
+          contentContainerStyle={styles.contentContainer}>
+          <View style={styles.root}>
+            <View style={styles.linkedWrapper}>
+              <Image
+                source={LinkedInLogo}
+                resizeMode="contain"
+                style={styles.logoImg}
+              />
+            </View>
+            <View style={{marginBottom: 30}}></View>
+            <View style={styles.carouselContainer}>
+              <FlatList
+                data={carouselData}
+                renderItem={renderItems}
+                keyExtractor={(item, index) => index.toString()}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                pagingEnabled
+                ref={flatListRef}
+                style={styles.carousel}
+                viewabilityConfig={viewConfigRef}
+                onViewableItemsChanged={onViewRef.current}
+              />
+              <Pagination
+                dotsLength={carouselData.length}
+                activeDotIndex={currentIndex}
+                containerStyle={styles.dotView}
+                dotStyle={styles.circle}
+              />
+            </View>
+            <View style={{marginBottom: 5}}></View>
+            <Text>
+              By clicking Agree & Join or Continue, you agree to LinkedIn's{' '}
+              <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
+                User Agreement
+              </Text>
+              ,
+              <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
+                {' '}
+                Privacy Policy
+              </Text>{' '}
+              and
+              <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
+                {' '}
+                Cookie Policy
+              </Text>
+              .
             </Text>
-            ,
-            <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
-              {' '}
-              Privacy Policy
-            </Text>{' '}
-            and
-            <Text style={styles.boldBlueText} onPress={onClickLegalAgreement}>
-              {' '}
-              Cookie Policy
-            </Text>
-            .
-          </Text>
-          <View style={styles.agreeAndJoinWrapper}>
-            <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
+            <View style={styles.agreeAndJoinWrapper}>
+              <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
+            </View>
+            <View>
+              <Button
+                icon={GoogleLogo}
+                onPress={onClickContWithGoogle}
+                title="Continue with Google"
+                transparent={true}
+              />
+            </View>
+            <View style={styles.signInWithAppleWrapper}>
+              <Button
+                icon={AppleLogo}
+                onPress={signInWithApple}
+                title="Continue with Apple"
+                transparent={true}
+              />
+            </View>
+            <View style={styles.signInWrapper}>
+              <Text style={styles.singInText} onPress={openSignInPage}>
+                {' '}
+                Sign in
+              </Text>
+            </View>
           </View>
-          <View>
-            <Button
-              icon={GoogleLogo}
-              onPress={onClickContWithGoogle}
-              title="Continue with Google"
-              transparent={true}
-            />
-          </View>
-          <View style={styles.signInWithAppleWrapper}>
-            <Button
-              icon={AppleLogo}
-              onPress={signInWithApple}
-              title="Continue with Apple"
-              transparent={true}
-            />
-          </View>
-          <View style={styles.signInWrapper}>
-            <Text style={styles.singInText} onPress={openSignInPage}>
-              {' '}
-              Sign in
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 
