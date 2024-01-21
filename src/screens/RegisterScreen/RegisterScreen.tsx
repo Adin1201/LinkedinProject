@@ -64,7 +64,7 @@ function RegisterScreen() {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}
-        contentContainerStyle={{flex: 1}}>
+        contentContainerStyle={styles.contentContainer}>
         <View style={styles.root}>
           <View style={styles.linkedCloseWrapper}>
             <Image
@@ -77,7 +77,7 @@ function RegisterScreen() {
             </TouchableOpacity>
           </View>
           <View style={styles.content}>
-            <View style={{marginBottom: 30}}>
+            <View style={styles.joinLinkedinWrapper}>
               <Text style={styles.singInText}>Join Linkedin</Text>
               <Text>
                 or{' '}
@@ -87,13 +87,14 @@ function RegisterScreen() {
               </Text>
             </View>
             <Text>Email</Text>
-            <CustomTextInput
-              value={state.emailOrPhone}
-              onChangeText={slovoSTastature =>
-                setState({...state, emailOrPhone: slovoSTastature})
-              }
-              style={{height: 30}}
-            />
+            <View style={styles.emailInput}>
+              <CustomTextInput
+                value={state.emailOrPhone}
+                onChangeText={slovoSTastature =>
+                  setState({...state, emailOrPhone: slovoSTastature})
+                }
+              />
+            </View>
             <View style={styles.separatorContainer}>
               <Text>
                 By clicking Agree & Join or Continue, you agree to LinkedIn's{' '}
@@ -119,7 +120,7 @@ function RegisterScreen() {
                 .
               </Text>
             </View>
-            <View style={{marginTop: 20}}>
+            <View style={styles.buttonAgreeAndJoin}>
               <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
             </View>
             <View style={styles.orSeparatorContainer}>
@@ -127,7 +128,7 @@ function RegisterScreen() {
               <Text style={styles.orText}>or</Text>
               <View style={styles.separatorBorder} />
             </View>
-            <View style={{marginBottom: 19}}>
+            <View style={styles.buttonGoogle}>
               <Button
                 icon={GoogleLogo}
                 onPress={onClickContWithGoogle}

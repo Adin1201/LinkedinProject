@@ -14,6 +14,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
 import LinkedInLogo from '../../assets/images/linkedIn_logo.png';
+import CustomTextInput from '../../components/CustomTextInput';
 import Button from '../../components/Button';
 import GoogleLogo from '../../assets/images/google_logo.png';
 import styles from './WelcomeScreen.styles';
@@ -24,7 +25,7 @@ import {FlatList} from 'react-native';
 import {Pagination} from 'react-native-snap-carousel';
 import AppleLogo from '../../assets/images/apple_logo.png';
 
-function RegisterScreen() {
+function WelcomeScreen() {
   const navigation = useNavigation<any>();
 
   const isDarkMode = useColorScheme() === 'dark';
@@ -97,10 +98,6 @@ function RegisterScreen() {
     return navigation.navigate('SignIn');
   }
 
-  function AddNameScreen() {
-    return navigation.navigate('AddNameScreen');
-  }
-
   return (
     <SafeAreaView style={[backgroundStyle, styles.safeAreaView]}>
       <StatusBar
@@ -159,7 +156,7 @@ function RegisterScreen() {
             .
           </Text>
           <View style={styles.agreeAndJoinWrapper}>
-            <Button onPress={AddNameScreen} title="Agree & Join" />
+            <Button onPress={onClickAgreeAndJoin} title="Agree & Join" />
           </View>
           <View>
             <Button
@@ -189,4 +186,4 @@ function RegisterScreen() {
   );
 }
 
-export default RegisterScreen;
+export default WelcomeScreen;
