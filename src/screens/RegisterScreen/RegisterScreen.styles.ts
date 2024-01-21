@@ -14,10 +14,18 @@ interface Style {
   orText: TextStyle;
   orSeparatorContainer: ViewStyle;
   content: ViewStyle;
+  emailInput: ViewStyle;
+  buttonAgreeAndJoin: ViewStyle;
+  buttonGoogle: ViewStyle;
+  joinLinkedinWrapper: ViewStyle;
+  contentContainer: ViewStyle;
 }
 
 export default StyleSheet.create<Style>({
   safeAreaView: {
+    flex: 1,
+  },
+  contentContainer: {
     flex: 1,
   },
   root: {
@@ -69,5 +77,17 @@ export default StyleSheet.create<Style>({
   },
   content: {
     marginTop: 30,
+  },
+  emailInput: {
+    height: 40,
+  },
+  buttonAgreeAndJoin: {
+    marginTop: 20,
+  },
+  buttonGoogle: {
+    marginBottom: 19,
+  },
+  joinLinkedinWrapper: {
+    marginBottom: 30,
   },
 });
