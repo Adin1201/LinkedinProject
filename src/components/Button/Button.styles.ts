@@ -2,9 +2,11 @@ import {ImageStyle, StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 interface Style {
   root: ViewStyle;
+  rootSmall: ViewStyle;
   rootTransparent: ViewStyle;
   iconTitleWrapper: ViewStyle;
   titleText: TextStyle;
+  titleTextSmall: TextStyle;
   titleTextTransparent: TextStyle;
   iconImage: ImageStyle;
 }
@@ -15,6 +17,12 @@ export default StyleSheet.create<Style>({
     padding: 10,
     alignItems: 'center',
     borderRadius: 40,
+  },
+  rootSmall: {
+    padding: 4.5,
+    borderRadius: 40,
+    width: 100,
+    borderWidth: 1.5,
   },
   rootTransparent: {
     backgroundColor: '',
@@ -29,6 +37,9 @@ export default StyleSheet.create<Style>({
     fontWeight: '600',
     fontSize: 19,
     color: 'white',
+  },
+  titleTextSmall: {
+    fontSize: 16,
   },
   titleTextTransparent: {
     color: '#6e6e6e',
