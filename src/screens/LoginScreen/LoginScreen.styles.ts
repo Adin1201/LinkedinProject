@@ -12,15 +12,33 @@ interface Style {
   singInText: TextStyle;
   joinLnText: TextStyle;
   logoImg: ImageStyle;
+  contentContainer: ViewStyle;
+  signInContainer: ViewStyle;
+  signInWrapper: ViewStyle;
+  passwordInput: ViewStyle;
+  separatorAppleGoogle: ViewStyle;
 }
 
 export default StyleSheet.create<Style>({
   safeAreaView: {
     flex: 1,
   },
+  contentContainer: {
+    flex: 1,
+  },
   root: {
     flex: 1,
     margin: 20,
+  },
+  signInContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  signInWrapper: {
+    marginBottom: 30,
+  },
+  passwordInput: {
+    marginTop: 10,
   },
   forgotPasswordText: {
     marginVertical: 20,
@@ -50,6 +68,9 @@ export default StyleSheet.create<Style>({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  separatorAppleGoogle: {
+    marginTop: 19,
   },
   singInText: {
     fontSize: 32,
