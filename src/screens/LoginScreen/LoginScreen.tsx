@@ -67,7 +67,7 @@ function LoginScreen() {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}
-        contentContainerStyle={{flex: 1}}>
+        contentContainerStyle={styles.contentContainer}>
         <View style={styles.root}>
           <View style={styles.linkedCloseWrapper}>
             <Image
@@ -80,8 +80,8 @@ function LoginScreen() {
             </TouchableOpacity>
           </View>
 
-          <View style={{flex: 1, justifyContent: 'center'}}>
-            <View style={{marginBottom: 30}}>
+          <View style={styles.signInContainer}>
+            <View style={styles.signInWrapper}>
               <Text style={styles.singInText}>Sign in</Text>
               <Text>
                 or{' '}
@@ -99,16 +99,16 @@ function LoginScreen() {
               placeholder="Email or Phone"
             />
 
-            <CustomTextInput
-              value={state.password}
-              onChangeText={slovoSTastature =>
-                setState({...state, password: slovoSTastature})
-              }
-              placeholder="Password"
-              secureTextEntry={true}
-              rootStyle={{marginTop: 10}}
-            />
-
+            <View style={styles.passwordInput}>
+              <CustomTextInput
+                value={state.password}
+                onChangeText={slovoSTastature =>
+                  setState({...state, password: slovoSTastature})
+                }
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+            </View>
             <Text
               style={styles.forgotPasswordText}
               onPress={forgotPasswordText}>
@@ -125,22 +125,20 @@ function LoginScreen() {
               <View style={styles.separatorBorder} />
             </View>
 
-            <View style={{marginBottom: 19}}>
-              <Button
-                icon={AppleLogo}
-                onPress={signInWithApple}
-                title="Sign in with Apple"
-                transparent={true}
-              />
-            </View>
-            <View style={{marginBottom: 19}}>
-              <Button
-                icon={GoogleLogo}
-                onPress={signInWithApple}
-                title="Sign in with Google"
-                transparent={true}
-              />
-            </View>
+            <Button
+              icon={AppleLogo}
+              onPress={signInWithApple}
+              title="Sign in with Apple"
+              transparent={true}
+            />
+            <View style={styles.separatorAppleGoogle} />
+
+            <Button
+              icon={GoogleLogo}
+              onPress={signInWithApple}
+              title="Sign in with Google"
+              transparent={true}
+            />
           </View>
         </View>
       </ScrollView>
