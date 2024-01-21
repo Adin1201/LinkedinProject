@@ -43,6 +43,10 @@ function LoginScreen() {
     return navigation.navigate('WelcomeScreen');
   };
 
+  const openEmailVerificationScreen = () => {
+    return navigation.navigate('EmailVerificationScreen');
+  };
+
   const checkTextInput = () => {
     const trimmedEmail = state.email.trim();
 
@@ -55,7 +59,7 @@ function LoginScreen() {
       setIsEmailValid(false);
       return;
     }
-    setIsEmailValid(true);
+    openEmailVerificationScreen();
   };
 
   return (
