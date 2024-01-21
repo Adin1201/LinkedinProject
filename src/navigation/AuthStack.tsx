@@ -4,11 +4,17 @@ import RegisterScreen from '../screens/RegisterScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import AddNameScreen from '../screens/AddNameScreen';
 import AddEmailScreen from '../screens/AddEmailScreen';
+import EmailVerificationScreen from '../screens/EmailVerificationScreen/EmailVerificationScreen';
 const Stack = createNativeStackNavigator<any>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="EmailVerificationScreen"
+        component={EmailVerificationScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="WelcomeScreen"
         component={WelcomeScreen}
