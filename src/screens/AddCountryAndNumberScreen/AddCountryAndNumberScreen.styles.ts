@@ -60,11 +60,14 @@ export default StyleSheet.create<Style>({
   inputInfoContainer: {
     flex: 0.55,
     justifyContent: 'center',
+    marginTop: 20,
   },
   buttonContainer: {
     marginTop: 20,
   },
   inputHeightSize: {
+    paddingVertical: 5,
+    marginTop: 1,
     height: 30,
   },
   securityCheckText: {

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {
   Alert,
-  Image,
+  KeyboardAvoidingView,
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -12,8 +13,6 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
-import LinkedInLogo from '../../assets/images/linkedIn_logo.png';
-import CloseButton from '../../assets/images/close_btn.png';
 import Button from '../../components/Button';
 import styles from './AddCountryAndNumberScreen.styles';
 import CustomTextInput from '../../components/CustomTextInput';
@@ -22,7 +21,7 @@ import {CountryPicker, CountryItem} from 'react-native-country-codes-picker';
 function LoginScreen() {
   const [state, setState] = useState({
     firstName: '',
-    lastName: '',
+    phoneNumber: '',
   });
 
   const [selectedCountry, setSelectedCountry] = useState<CountryItem | null>(
@@ -54,20 +53,20 @@ function LoginScreen() {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.root}>
-          <Text style={styles.securityCheckText}>
-            {' '}
-            Just a quick security check{' '}
-          </Text>
-          <Text style={styles.verificationText}>
-            As an extra security step, we'll need to give you a verification
-            code <Text style={styles.learnMoreText}>Learn more</Text>
-          </Text>
-          <View style={styles.inputInfoContainer}>
+
+      <View style={styles.root}>
+        <Text style={styles.securityCheckText}>
+          {' '}
+          Just a quick security check{' '}
+        </Text>
+        <Text style={styles.verificationText}>
+          As an extra security step, we'll need to give you a verification code{' '}
+          <Text style={styles.learnMoreText}>Learn more</Text>
+        </Text>
+        <View style={styles.inputInfoContainer}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{flex: 1}}>
             <Text>Select country</Text>
             <TouchableOpacity
               onPress={() => setShowCountryPicker(true)}
@@ -99,9 +98,9 @@ function LoginScreen() {
             <View style={styles.inputInfoWrapper}>
               <Text>Phone Number</Text>
               <CustomTextInput
-                value={state.lastName}
+                value={state.phoneNumber}
                 onChangeText={slovoSTastature =>
-                  setState({...state, lastName: slovoSTastature})
+                  setState({...state, phoneNumber: slovoSTastature})
                 }
                 style={styles.inputHeightSize}
               />
@@ -110,9 +109,9 @@ function LoginScreen() {
             <View style={styles.buttonContainer}>
               <Button onPress={openAddEmailScreen} title="Continue" />
             </View>
-          </View>
+          </KeyboardAvoidingView>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

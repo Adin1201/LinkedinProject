@@ -23,6 +23,7 @@
     "react-native-country-codes-picker": "^2.3.5",
     "react-native-country-list": "^1.0.10",
     "react-native-element-dropdown": "^2.10.1",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-modal": "^13.0.1",
     "react-native-picker-select": "^9.0.1",
     "react-native-reanimated-carousel": "^3.5.1",
