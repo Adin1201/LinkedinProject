@@ -15,6 +15,7 @@ interface Style {
   inputHeightSize: TextStyle;
   invalidInput: ViewStyle;
   invalidBorder: ViewStyle;
+  closeBtnContainer: ViewStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -70,5 +71,10 @@ export default StyleSheet.create<Style>({
   },
   invalidBorder: {
     borderColor: 'red',
+  },
+  closeBtnContainer: {
+    position: 'absolute',
+    top: 10, // Prilagodite položaj ikonice prema potrebi
+    right: 10, // Prilagodite položaj ikonice prema potrebi
   },
 });

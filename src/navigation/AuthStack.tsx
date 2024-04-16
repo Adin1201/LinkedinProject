@@ -5,11 +5,17 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import AddNameScreen from '../screens/AddNameScreen';
 import AddEmailScreen from '../screens/AddEmailScreen';
 import EmailVerificationScreen from '../screens/EmailVerificationScreen/EmailVerificationScreen';
+import AddJobTitleScreen from '../screens/AddJobTitleScreen';
 const Stack = createNativeStackNavigator<any>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="AddJobTitleScreen"
+        component={AddJobTitleScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="EmailVerificationScreen"
         component={EmailVerificationScreen}
