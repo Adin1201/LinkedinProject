@@ -6,11 +6,17 @@ import AddNameScreen from '../screens/AddNameScreen';
 import AddEmailScreen from '../screens/AddEmailScreen';
 import EmailVerificationScreen from '../screens/EmailVerificationScreen/EmailVerificationScreen';
 import AddCountryAndNumberScreen from '../screens/AddCountryAndNumberScreen';
+import AddLocationScreen from '../screens/AddLocationScreen';
 const Stack = createNativeStackNavigator<any>();
 
 const AuthStack = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="AddLocationScreen"
+        component={AddLocationScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="AddCountryAndNumberScreen"
         component={AddCountryAndNumberScreen}
