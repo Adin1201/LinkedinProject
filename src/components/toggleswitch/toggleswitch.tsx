@@ -2,11 +2,16 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import styles from '../toggleswitch/toggleswitch.styles';
 
-const toggleswitch = () => {
+interface ToggleSwitchProps {
+  onToggle: (value: boolean) => void;
+}
+
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({onToggle}) => {
   const [isYes, setIsYes] = useState(false);
 
   const toggleSwitch = () => {
     setIsYes(!isYes);
+    onToggle(isYes);
   };
 
   return (
@@ -19,4 +24,4 @@ const toggleswitch = () => {
   );
 };
 
-export default toggleswitch;
+export default ToggleSwitch;

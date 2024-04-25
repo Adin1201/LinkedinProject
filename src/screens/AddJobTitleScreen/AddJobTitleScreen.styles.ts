@@ -1,4 +1,4 @@
-import {ImageStyle, StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {ImageStyle, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 
 interface Style {
   safeAreaView: ViewStyle;
@@ -18,6 +18,11 @@ interface Style {
   mostRecentJobTitle: TextStyle;
   employmentTypeTitle: TextStyle;
   mostRecentCompanyTitle: TextStyle;
+  universityText: TextStyle;
+  degreeText: TextStyle;
+  specializationText: TextStyle;
+  degreeField: ViewStyle;
+  buttonContainer: ViewStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -76,7 +81,7 @@ export default StyleSheet.create<Style>({
     color: 'black',
   },
   employmentType: {
-    marginTop: 30,
+    marginTop: 40,
   },
   employmentTypeTitle: {
     marginBottom: 10,
@@ -84,12 +89,35 @@ export default StyleSheet.create<Style>({
     color: 'black',
   },
   mostRecentCompany: {
-    marginTop: 30,
+    marginTop: 40,
   },
-
   mostRecentCompanyTitle: {
     marginBottom: 10,
     fontSize: 16,
     color: 'black',
+  },
+  universityText: {
+    marginBottom: 10,
+    fontSize: 16,
+    color: 'black',
+  },
+  degreeText: {
+    marginBottom: 10,
+    fontSize: 16,
+    color: 'black',
+  },
+  specializationText: {
+    marginBottom: 10,
+    fontSize: 16,
+    color: 'black',
+  },
+  degreeField: {
+    marginTop: 40,
+    marginBottom: 40,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20, // Dodatni prostor
   },
 });

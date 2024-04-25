@@ -8,7 +8,8 @@ interface Style {
   titleText: TextStyle;
   titleTextSmall: TextStyle;
   titleTextTransparent: TextStyle;
-  iconImage: ImageStyle;
+  disabled: ViewStyle; // Dodajemo stil za onemogućeno stanje
+  disabledText: TextStyle; // Novi stil za onemogućeni tekst
 }
 
 export default StyleSheet.create<Style>({
@@ -17,6 +18,7 @@ export default StyleSheet.create<Style>({
     padding: 10,
     alignItems: 'center',
     borderRadius: 40,
+    width: '80%',
   },
   rootSmall: {
     padding: 4.5,
@@ -44,9 +46,14 @@ export default StyleSheet.create<Style>({
   titleTextTransparent: {
     color: '#6e6e6e',
   },
-  iconImage: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
+  disabled: {
+    backgroundColor: '#d3d3d3',
+    color: '#a9a9a9',
+    borderColor: '#d3d3d3',
+    width: '80%',
+    alignItems: 'center',
+  },
+  disabledText: {
+    color: '#a9a9a9',
   },
 });

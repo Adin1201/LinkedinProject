@@ -7,7 +7,7 @@ interface Style {
   jobTitles: ViewStyle;
   backArrow: ImageStyle;
   arrowTitleWrapper: ViewStyle;
-  jobTitlesContainer: ViewStyle;
+  suggestionsContainer: ViewStyle;
   input: ViewStyle;
   jobTitle: TextStyle;
   closeBtn: ImageStyle;
@@ -50,7 +50,7 @@ export default StyleSheet.create<Style>({
     color: 'black',
     fontWeight: '700',
   },
-  jobTitlesContainer: {
+  suggestionsContainer: {
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 10,

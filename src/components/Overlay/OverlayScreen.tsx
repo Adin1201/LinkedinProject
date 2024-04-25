@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Modal, TouchableOpacity, Image} from 'react-native';
 import styles from '../Overlay/OverlayScreen.styles';
 import backArrow from '../../assets/images/backArrow.png';
@@ -18,6 +18,12 @@ interface State {
   jobTitle: string;
   suggestedJobs: string[];
   activeField: string | null;
+  recentJobTitle: string;
+  recentEmploymentType: string;
+  recentCompanies: string;
+  universityOrSchool: string;
+  degree: string;
+  specialization: string;
 }
 
 const mostRecentJobTitle = [
@@ -38,6 +44,30 @@ const employmentTypes = [
 
 const recentCompanies = ['Google', 'Facebook', 'Amazon', 'Microsoft', 'Apple'];
 
+const universityOrSchool = [
+  'Burch',
+  'FIT',
+  'Faculty of Politehnic',
+  'CEPS',
+  'ETF',
+];
+
+const degree = [
+  'Bachelor of Science (B.S.)',
+  'Bachelor of Arts (B.A.):',
+  'Doctor of Philosophy (Ph.D.)',
+  'Master of Business Administration (MBA):',
+  'Juris Doctor (J.D.)',
+];
+
+const specialization = [
+  'Data Science',
+  'Cybersecurity',
+  'Pediatrics',
+  'Environmental Engineering',
+  'Digital Marketing',
+];
+
 const OverlayScreen: React.FC<Props> = ({
   visible,
   onClose,
@@ -46,33 +76,53 @@ const OverlayScreen: React.FC<Props> = ({
   field,
 }) => {
   const fieldTitles: {[key: string]: string} = {
-    'Most recent job title': 'Most recent job title',
+    'Most recent job title': 'Most Recent Job Title',
     'Employment type': 'Employment Type',
     'Most recent company': 'Most Recent Companies',
+    'University or School': 'University or School',
+    Degree: 'Degree',
+    Specialization: 'Specialization',
   };
-
-  const initialActiveField = field || Object.keys(fieldTitles)[0];
 
   const [state, setState] = useState<State>({
     jobTitle: '',
     suggestedJobs: [],
-    activeField: initialActiveField,
+    activeField: null,
+    recentJobTitle: '',
+    recentEmploymentType: '',
+    recentCompanies: '',
+    universityOrSchool: '',
+    degree: '',
+    specialization: '',
   });
+
+  useEffect(() => {
+    console.log('Aktivno polje:', field);
+
+    if (field) {
+      setState(prevState => ({
+        ...prevState,
+        activeField: field,
+      }));
+    } else {
+      setState(prevState => ({
+        ...prevState,
+        activeField: null,
+      }));
+    }
+  }, [field]);
 
   const fieldSuggestions: {[key: string]: string[]} = {
     'Most recent job title': mostRecentJobTitle,
     'Employment type': employmentTypes,
     'Most recent company': recentCompanies,
+    'University or School': universityOrSchool,
+    Degree: degree,
+    Specialization: specialization,
   };
 
   const filterSuggestions = (text: string) => {
-    console.log('Active field:', state.activeField);
-    console.log(
-      'Field suggestions:',
-      fieldSuggestions[state.activeField || ''],
-    );
     const suggestions = fieldSuggestions[state.activeField || ''] || [];
-    console.log('Suggestions:', suggestions);
     const filtered = suggestions.filter(item =>
       item.toLowerCase().includes(text.toLowerCase()),
     );
@@ -87,6 +137,19 @@ const OverlayScreen: React.FC<Props> = ({
   const handleSearchChange = (text: string) => {
     filterSuggestions(text);
   };
+
+  useEffect(() => {
+    if (state.activeField !== 'Most recent job title') {
+      setState(prevState => ({
+        ...prevState,
+        jobTitle: '',
+        suggestedJobs: [],
+      }));
+    }
+  }, [state.activeField]);
+
+  console.log('Aktivno polje prilikom renderovanja:', state.activeField);
+
   return (
     <Modal
       visible={visible}
@@ -105,7 +168,7 @@ const OverlayScreen: React.FC<Props> = ({
             </TouchableOpacity>
             <Text style={styles.title}>{field ? fieldTitles[field] : ''}</Text>
           </View>
-          <View style={styles.jobTitlesContainer}>
+          <View style={styles.suggestionsContainer}>
             <CustomTextInput
               noBorder
               value={state.jobTitle}
@@ -121,7 +184,14 @@ const OverlayScreen: React.FC<Props> = ({
             {state.suggestedJobs.map((item, index) => (
               <TouchableOpacity
                 key={index}
-                onPress={() => onJobSelect(item, state.activeField!)}>
+                onPress={() => {
+                  setState(prevState => ({
+                    ...prevState,
+                    [state.activeField || '']: item,
+                  }));
+                  onJobSelect(item, state.activeField!);
+                  onClose();
+                }}>
                 <Text style={styles.jobTitle}>{item}</Text>
               </TouchableOpacity>
             ))}

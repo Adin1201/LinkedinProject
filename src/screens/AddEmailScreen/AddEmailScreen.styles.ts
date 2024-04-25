@@ -74,7 +74,7 @@ export default StyleSheet.create<Style>({
   },
   closeBtnContainer: {
     position: 'absolute',
-    top: 10, // Prilagodite položaj ikonice prema potrebi
-    right: 10, // Prilagodite položaj ikonice prema potrebi
+    top: 10,
+    right: 10,
   },
 });
