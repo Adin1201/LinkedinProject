@@ -66,7 +66,7 @@ function WelcomeScreen() {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % carouselData.length;
       scrollToIndex(nextIndex);
-    }, 2000); // Promijenite ovo vrijeme za željeni interval automatskog listanja
+    }, 2000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 

@@ -41,9 +41,7 @@ const EmailVerificationScreen: React.FC = () => {
   };
 
   const handleCodeChange = (input: string) => {
-    // Remove non-numeric characters from input
     const formattedText = input.replace(/[^0-9]/g, '').slice(0, 6);
-    // Update the state
     setCode(formattedText);
   };
 

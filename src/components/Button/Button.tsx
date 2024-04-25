@@ -17,50 +17,31 @@ interface Props {
   size?: 'small' | 'medium' | 'large';
   style?: ViewStyle;
   styleTitle?: TextStyle;
+  disabled?: boolean;
 }
 
 const Button = (props: Props) => {
   const isSmallSize = props.size === 'small';
+
+  const buttonStyle = props.disabled
+    ? [styles.root, styles.disabled, props.style]
+    : [styles.root, isSmallSize ? styles.rootSmall : null, props.style];
+
+  const titleStyle = props.disabled
+    ? [styles.titleText, styles.disabledText]
+    : [
+        styles.titleText,
+        isSmallSize ? styles.titleTextSmall : null,
+        props.styleTitle,
+      ];
+
   return (
-    <View
-      style={
-        props.transparent
-          ? [
-              styles.root,
-              styles.rootTransparent,
-              isSmallSize ? styles.rootSmall : null,
-              props.style,
-            ]
-          : [styles.root, isSmallSize ? styles.rootSmall : null, props.style]
-      }>
-      <TouchableOpacity onPress={props.onPress} style={styles.iconTitleWrapper}>
-        {props.icon ? (
-          <Image
-            style={styles.iconImage}
-            source={props.icon}
-            resizeMode="contain"></Image>
-        ) : (
-          <></>
-        )}
-        <Text
-          style={
-            props.transparent
-              ? [
-                  styles.titleText,
-                  styles.titleTextTransparent,
-                  isSmallSize ? styles.titleTextSmall : null,
-                  props.styleTitle,
-                ]
-              : [
-                  styles.titleText,
-                  isSmallSize ? styles.titleTextSmall : null,
-                  props.styleTitle,
-                ]
-          }>
-          {props.title}
-        </Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={props.disabled ? undefined : props.onPress}
+      style={buttonStyle}
+      activeOpacity={props.disabled ? 1 : 0.7}>
+      <Text style={titleStyle}>{props.title}</Text>
+    </TouchableOpacity>
   );
 };
 

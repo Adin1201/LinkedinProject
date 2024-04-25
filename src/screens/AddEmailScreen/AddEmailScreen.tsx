@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useNavigation} from '@react-navigation/native';
-import LinkedInLogo from '../../assets/images/linkedIn_logo.png';
 import CloseButton from '../../assets/images/close_btn.png';
 import CustomTextInput from '../../components/CustomTextInput';
 import Button from '../../components/Button';

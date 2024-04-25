@@ -12,13 +12,19 @@ import styles from './CustomTextInput.styles';
 interface Props extends TextInputProps {
   style?: TextStyle;
   rootStyle?: ViewStyle;
+  noBorder?: boolean;
 }
 
 const CustomTextInput = (props: Props) => {
-  const {} = props;
+  const {noBorder} = props;
   return (
     <View>
-      <View style={[styles.inputWrapper, props.rootStyle]}>
+      <View
+        style={[
+          styles.inputWrapper,
+          !noBorder && styles.defaultBorder,
+          props.rootStyle,
+        ]}>
         <TextInput {...props} />
       </View>
     </View>
