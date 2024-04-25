@@ -8,8 +8,8 @@ interface Style {
   titleText: TextStyle;
   titleTextSmall: TextStyle;
   titleTextTransparent: TextStyle;
-  disabled: ViewStyle; // Dodajemo stil za onemogućeno stanje
-  disabledText: TextStyle; // Novi stil za onemogućeni tekst
+  disabled: ViewStyle;
+  disabledText: TextStyle;
 }
 
 export default StyleSheet.create<Style>({
